@@ -1,0 +1,43 @@
+{
+ "name": "tolk-lsp",
+ "version": "0.1.0",
+ "displayName": "Tolk Language Server",
+ "description": "LSP Server for Tolk language (next-generation FunC)",
+ "keywords": [
+  "TON",
+  "The Open Network",
+  "Tolk",
+  "FunC",
+  "Smart contract"
+ ],
+ "main": "dist/index.js",
+ "files": [
+  "dist/**/*",
+  "tree-sitter-tolk.wasm"
+ ],
+ "scripts": {
+  "test": "jest",
+  "build": "rm -Rf dist && tsc -d",
+  "grammar:wasm": "cd tree-sitter-tolk && tree-sitter generate && tree-sitter build -wasm --docker && cp tree-sitter-tolk.wasm ./tree-sitter-tolk.wasm"
+ },
+ "bin": {
+  "tolk-lsp": "./dist/server.js"
+ },
+ "dependencies": {
+  "nan": "^2.16.0",
+  "@ton/tolk-js": "^0.99.0",
+  "vscode-languageserver": "^8.0.2",
+  "vscode-languageserver-textdocument": "^1.0.7",
+  "vscode-uri": "^3.0.7",
+  "web-tree-sitter": "^0.20.8"
+ },
+ "devDependencies": {
+  "@types/jest": "^30.0.0",
+  "@types/node": "^24.0.3",
+  "@types/vscode": "^1.101.0",
+  "jest": "^30.0.0",
+  "tree-sitter-cli": "^0.25.6",
+  "ts-jest": "^29.4.0",
+  "typescript": "5.5.x"
+ }
+}
