@@ -1,7 +1,7 @@
 # Tolk LSP server
 
 It's a an attempt to separate LSP server from [tolk-vscode](https://github.com/ton-blockchain/tolk-vscode)
-into separate component.
+into standalone component.
 
 ## Build
 - `npm run build`
